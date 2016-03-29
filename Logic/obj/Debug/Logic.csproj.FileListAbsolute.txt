@@ -1,0 +1,10 @@
+D:\emberAPItest\EmberApiREST\Logic\bin\Debug\Logic.dll.config
+D:\emberAPItest\EmberApiREST\Logic\bin\Debug\Logic.dll
+D:\emberAPItest\EmberApiREST\Logic\bin\Debug\Logic.pdb
+D:\emberAPItest\EmberApiREST\Logic\bin\Debug\EntityFramework.dll
+D:\emberAPItest\EmberApiREST\Logic\bin\Debug\EntityFramework.SqlServer.dll
+D:\emberAPItest\EmberApiREST\Logic\bin\Debug\EntityFramework.xml
+D:\emberAPItest\EmberApiREST\Logic\bin\Debug\EntityFramework.SqlServer.xml
+D:\emberAPItest\EmberApiREST\Logic\obj\Debug\Logic.csprojResolveAssemblyReference.cache
+D:\emberAPItest\EmberApiREST\Logic\obj\Debug\Logic.dll
+D:\emberAPItest\EmberApiREST\Logic\obj\Debug\Logic.pdb
