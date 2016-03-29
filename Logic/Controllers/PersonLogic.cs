@@ -12,11 +12,12 @@ namespace Logic.Controllers
     {
         public static dynamic GetAllPerson()
         {
+           // return ['uno]
             using (var db = new EmberContext())
             {
                 var widgets = db.Database.SqlQuery<Widget>("usp_SmartInsight_Widget_GetAll").ToList();
 
-                return new { widgets = widgets };
+                return new { people = widgets };
             }
         } 
 
