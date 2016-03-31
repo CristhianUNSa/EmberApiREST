@@ -66,3 +66,5 @@ D:\emberAPItest\EmberApiREST\WebApi2\bin\Logic.pdb
 D:\emberAPItest\EmberApiREST\WebApi2\bin\Microsoft.Owin.Cors.dll
 D:\emberAPItest\EmberApiREST\WebApi2\bin\System.Web.Cors.dll
 D:\emberAPItest\EmberApiREST\WebApi2\bin\Microsoft.Owin.Cors.xml
+D:\emberAPItest\EmberApiREST\WebApi2\bin\System.Web.Http.Cors.dll
+D:\emberAPItest\EmberApiREST\WebApi2\bin\System.Web.Http.Cors.xml

@@ -5,12 +5,15 @@ using System.Linq;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
+//agregar este using para el cors .. installar desde el nuget Microsoft.AspNet.WebApi.Cors
+using System.Web.Http.Cors;
 
 namespace WebApi2.Controllers
 {
     public class PeopleController : ApiController
     {
         // GET api/people
+        [EnableCors(origins: "*", headers: "*", methods: "*")] //agregar esto para que funcione el cors ...cuidado porque esto habilita para que sea llamado desde todos lados
         public dynamic Get()
         {
             return PersonLogic.GetAllPerson(); //new string[] { "value1", "value2" };
