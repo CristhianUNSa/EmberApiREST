@@ -43,18 +43,18 @@ namespace Logic.Controllers
             q1.id = 1;
             q1.text = "Cual es tu Nombre";
             q1.type="input";
-            q1.answers = null;
+            q1.answers = new List<Answer>();
 
             Question q2 = new Question();
             q2.id = 2;
             q2.text = "Cual es tu Apellido";
             q2.type = "input";
-            q2.answers = null;
+            q2.answers = new List<Answer>();
             Question q3 = new Question();
             q3.id = 3;
             q3.text = "Cual es tu direccion";
             q3.type = "input";
-            q3.answers = null;
+            q3.answers = new List<Answer>();
 
              var personal = new List<Answer> { oanswer1, oanswer2, oanswer3, oanswer4, oanswer5 };
 
@@ -74,8 +74,21 @@ namespace Logic.Controllers
 
 
             var questions = new List<Question>{q1,q2,q3,q4,q5};
+            var questionsresponse = questions.Select(x => new {
+                                                                x.id,
+                                                                x.text,
+                                                                fieldId = x.answers.Any() ? x.answers.Select(xx => x.type.Trim() + '_' + x.id + '_' + xx.id) : new List<string>() { x.type.Trim() + "_" + x.id.ToString() },
+                                                                x.type,
+                                                                answers = x.answers.Select(y => new {
+                                                                                                      id = x.type.Trim() + '_' +x.id+'_'+ y.id,
+                                                                                                      y.text 
+                                                                                                    })
+                                                                 });
 
-            return new {questions=questions};
+
+           // var emberfields = questionsresponse.Select(z => new { id = z.answers.Any() ? z.answers.Select(xx => xx.id) : new List<string>() { z.type.Trim()+"_"+z.id.ToString()} });
+
+            return new { questions = questionsresponse };
 
 
             //using (var db = new EmberContext())
