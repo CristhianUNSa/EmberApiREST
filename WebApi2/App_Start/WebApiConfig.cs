@@ -11,6 +11,7 @@ using Microsoft.Owin;
 using System.Configuration;
 using System.Web.Cors;
 using System.Threading.Tasks;
+using System.Web.Http.Routing;
 
 namespace WebApi2
 {
@@ -26,14 +27,60 @@ namespace WebApi2
             // Web API routes
             config.MapHttpAttributeRoutes();
             // esto hay que agregar para que no me de error de cors desde el proyecto ember
-            config.EnableCors();
+            config.EnableCors();            
+
+            /* ESTE ES EL METODO ORIGINAL.. ASI SE CREA POR DEFAULT*/
+            //config.Routes.MapHttpRoute(
+            //    name: "DefaultApi",
+            //    routeTemplate: "api/{controller}/{id}",
+            //    defaults: new { id = RouteParameter.Optional }
+            //);
+
+            string alphanumeric = @"^[a-zA-Z]+[a-zA-Z0-9_]*$";
+            /* ESTO ES PARA QUE FUNQUE EL api/people/otroname ASI AGREGO EL METODO QUE QUIERO  */           
 
             config.Routes.MapHttpRoute(
-                name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
+                name: "DefaultApiControllerAction",
+                routeTemplate: "api/{controller}/{action}",
+                defaults: null,
+                constraints: new { action = alphanumeric } // action must start with character
             );
-            config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
+            /* ESTO ES PARA QUE FUNQUE EL api/people COMO EL POR DEFECTO  */
+            config.Routes.MapHttpRoute(
+                name: "DefaultApiControllerGet",
+                routeTemplate: "api/{controller}",
+                defaults: new { action = "Get" },
+                constraints: new { httpMethod = new HttpMethodConstraint(HttpMethod.Get) }
+            );
+
+            //config.Routes.MapHttpRoute(
+            //    name: "DefaultApiControllerPost",
+            //    routeTemplate: "api/{controller}",
+            //    defaults: new { action = "Post" },
+            //    constraints: new { httpMethod = new HttpMethodConstraint(HttpMethod.Post) }
+            //);
+
+            //config.Routes.MapHttpRoute(
+            //    name: "DefaultApiControllerPut",
+            //    routeTemplate: "api/{controller}",
+            //    defaults: new { action = "Put" },
+            //    constraints: new { httpMethod = new HttpMethodConstraint(HttpMethod.Put) }
+            //);
+
+            //config.Routes.MapHttpRoute(
+            //    name: "DefaultApiControllerDelete",
+            //    routeTemplate: "api/{controller}",
+            //    defaults: new { action = "Delete" },
+            //    constraints: new { httpMethod = new HttpMethodConstraint(HttpMethod.Delete) }
+            //);
+
+
+
+
+
+
+
+            config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));//esto es para que retorne JSON
         }      
 
     }

@@ -86,5 +86,26 @@ namespace Logic.Controllers
             //}
         } 
 
+        public static string PersonAdd(Person person){
+
+            Answer oanswer1 = new Answer();
+            oanswer1.id = 1;
+            oanswer1.text = "Licenciado en Sistemas";
+            Answer oanswer2 = new Answer();
+            oanswer2.id = 2;
+            oanswer2.text = "Analista en Sistemas";
+            Answer oanswer3 = new Answer();
+            oanswer3.id = 3;
+            oanswer3.text = "Ingeniero en Informatica";
+            Answer oanswer4 = new Answer();
+            oanswer4.id = 4;
+            oanswer4.text = "Analista Programador";
+            Answer oanswer5 = new Answer();
+            oanswer5.id = 5;
+            oanswer5.text = "Otro";
+
+            return "ok";
+        }
+
     }
 }
