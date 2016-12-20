@@ -77,9 +77,9 @@ namespace WebApi2
 
 
 
-
-
-
+/***
+**  ESTO ES LO QUE HAY QUE AGREGAR PRA RETORNAR EL JSON
+***/
             config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));//esto es para que retorne JSON
         }      
 
